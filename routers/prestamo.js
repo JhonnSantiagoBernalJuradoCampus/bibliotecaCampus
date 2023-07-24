@@ -19,5 +19,23 @@ appPrestamo.get('/',(req, res) => {
         }
     )
 })
+appPrestamo.get('/usuario',(req, res) => {
+    /**
+     * @var {req.query.user}
+     * req.query.user = Juan
+     */
+    con.query(`SELECT p.id_prestamo as id, p.fecha_prestamo as fecha_prestamo, u.nombre as nombre FROM prestamo as p INNER JOIN usuario as u ON p.id_usuario = u.id_usuario WHERE u.nombre = "${req.query.usuario}";`,
+        (err, data, fill)=>{
+            if(err){
+                res.status(404).send("Error al obtener datos");
+            }
+            else{
+                (Object.entries(data).length === 0)
+                ? res.status(400).send("Dato no encontrado")
+                : res.send(data);
+            }
+        }
+    )
+})
 
 export default appPrestamo;
