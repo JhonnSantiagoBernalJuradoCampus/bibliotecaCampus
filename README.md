@@ -13,3 +13,4 @@ MY_CONFIG = {"hostname": "127.12.1.2", "port": 5010}
 5. Mostrar todos los libros con su titulo, autor y editorial: `http://127.12.1.2:5010/libro`
 6. Listar los prestamos realizados con fecha de prestamo, fecha de devolucion y estado: `http://127.12.1.2:5010/prestamo`
 7. Obtener todas las reservas realizadas con su fecha de reserva y estado: `http://127.12.1.2:5010/reserva`
+8. Mostrar los libros disponibles para prestamo con su titulo y autor: `http://127.12.1.2:5010/libro/disponible`
