@@ -16,11 +16,11 @@ export class Autor {
 }
 __decorate([
     Expose({ name: "cate" }),
-    IsDefined({ message: () => { throw { status: 401, message: "El parametro nombre es obligatorio" }; } }),
-    IsString({ message: () => { throw { status: 400, message: "El parametro nombre debe ser un string" }; } }),
+    IsDefined({ message: () => { throw { status: 401, message: "El parametro cate es obligatorio" }; } }),
+    IsString({ message: () => { throw { status: 400, message: "El parametro cate debe ser un string" }; } }),
     Transform(({ value }) => {
         if (Math.floor(value))
-            throw { status: 400, message: "El parametro nombre debe ser un string" };
+            throw { status: 400, message: "El parametro cate debe ser un string" };
         else
             return value;
     }),
