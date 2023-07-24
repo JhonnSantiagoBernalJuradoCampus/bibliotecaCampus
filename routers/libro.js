@@ -45,7 +45,21 @@ appLibro.get('/prestado', (req,res) =>{
     )
 })
 appLibro.get('/autor', proxyAutor, (req,res)=>{
-    res.send(`Valido al autor ${req.query.nombre}`)
+    /**
+     * @var {req.query.nombre}
+     * req.query.nombre = Gabriel
+     */
+    con.query(`SELECT l.titulo as titulo, a.nombre as nombre FROM libro as l INNER JOIN autor as a ON l.id_autor = a.id_autor WHERE a.nombre = "${req.query.nombre}"`,
+    (err,data,fill) =>{
+        if(err){
+            res.status(404).send("Error al obtener datos");
+        }
+        else{
+            (Object.entries(data).length === 0)
+            ? res.status(400).send("Dato no encontrado")
+            : res.send(data);
+        }
+    })
 })
 
 export default appLibro;

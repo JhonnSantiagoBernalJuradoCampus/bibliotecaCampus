@@ -7,7 +7,6 @@ import {validate} from 'class-validator';
 const proxyAutor = express();
 proxyAutor.use(async(req,res,next)=>{
     try {
-        console.log(req.params);
         let data = plainToClass(Autor, req.query, { excludeExtraneousValues: true });
         req.params = data;
         await validate(data);
