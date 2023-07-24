@@ -1,6 +1,7 @@
 import { Router } from "express";
 import dotenv from "dotenv";
 import mysql from "mysql2";
+import proxyAutor from "../middleware/proxyAutor.js";
 dotenv.config();
 const appLibro = Router();
 
@@ -43,8 +44,8 @@ appLibro.get('/prestado', (req,res) =>{
         }
     )
 })
-appLibro.get('/:autor', (req,res)=>{
-    res.send(`Valido al autor ${req.params.autor}`)
+appLibro.get('/autor', proxyAutor, (req,res)=>{
+    res.send(`Valido al autor ${req.query.nombre}`)
 })
 
 export default appLibro;

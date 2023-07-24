@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Expose } from "class-transformer";
+import { Expose, Transform } from "class-transformer";
 import { IsDefined, IsString } from "class-validator";
 export class Autor {
     constructor(autor) {
@@ -15,8 +15,14 @@ export class Autor {
     }
 }
 __decorate([
-    Expose({ name: "autor" }),
-    IsDefined({ message: () => { throw { status: 401, message: "El parametro autor es obligatorio" }; } }),
-    IsString({ message: () => { throw { status: 400, message: "El parametro autor debe ser un string" }; } }),
+    Expose({ name: "nombre" }),
+    IsDefined({ message: () => { throw { status: 401, message: "El parametro nombre es obligatorio" }; } }),
+    IsString({ message: () => { throw { status: 400, message: "El parametro nombre debe ser un string" }; } }),
+    Transform(({ value }) => {
+        if (Math.floor(value))
+            throw { status: 400, message: "El parametro nombre debe ser un string" };
+        else
+            return value;
+    }),
     __metadata("design:type", String)
 ], Autor.prototype, "autor", void 0);
