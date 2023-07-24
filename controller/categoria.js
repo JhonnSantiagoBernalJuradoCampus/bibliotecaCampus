@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Expose, Transform } from "class-transformer";
 import { IsDefined, IsString } from "class-validator";
-export class Autor {
+export class Categoria {
     constructor(categoria) {
         this.categoria = categoria;
     }
@@ -25,4 +25,4 @@ __decorate([
             return value;
     }),
     __metadata("design:type", String)
-], Autor.prototype, "categoria", void 0);
+], Categoria.prototype, "categoria", void 0);

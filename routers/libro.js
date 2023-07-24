@@ -2,6 +2,7 @@ import { Router } from "express";
 import dotenv from "dotenv";
 import mysql from "mysql2";
 import proxyAutor from "../middleware/proxyAutor.js";
+import proxyCategoria from "../middleware/proxyCategoria.js";
 dotenv.config();
 const appLibro = Router();
 
@@ -61,5 +62,21 @@ appLibro.get('/autor', proxyAutor, (req,res)=>{
         }
     })
 })
-
+appLibro.get('/categoria', proxyCategoria, (req,res)=>{
+    /**
+     * @var {req.query.cate}
+     * req.query.cate = Novela
+     */
+    con.query(`SELECT l.titulo as titulo, c.nombre as categoria FROM libro as l INNER JOIN categoria as c ON l.id_categoria = c.id_categoria WHERE c.nombre = "${req.query.categoria}"`,
+    (err,data,fill) =>{
+        if(err){
+            res.status(404).send("Error al obtener datos");
+        }
+        else{
+            (Object.entries(data).length === 0)
+            ? res.status(400).send("Dato no encontrado")
+            : res.send(data);
+        }
+    })
+})
 export default appLibro;
