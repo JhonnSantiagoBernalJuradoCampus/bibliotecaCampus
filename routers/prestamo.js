@@ -1,6 +1,7 @@
 import { Router } from "express";
 import dotenv from "dotenv";
 import mysql from "mysql2";
+import proxyUsuario from "../middleware/proxyUsuario.js";
 dotenv.config();
 const appPrestamo = Router();
 
@@ -19,7 +20,7 @@ appPrestamo.get('/',(req, res) => {
         }
     )
 })
-appPrestamo.get('/usuario',(req, res) => {
+appPrestamo.get('/usuario',proxyUsuario,(req, res) => {
     /**
      * @var {req.query.user}
      * req.query.user = Juan
