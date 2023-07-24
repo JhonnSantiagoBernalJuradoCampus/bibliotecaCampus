@@ -18,3 +18,4 @@ MY_CONFIG = {"hostname": "127.12.1.2", "port": 5010}
 10. Listar los usuarios y sus correos electronicos: `http://127.12.1.2:5010/usuario`
 11. Mostar los libros escritos por un autor especifico: `http://127.12.1.2:5010/libro/autor/?nombre=Gabriel`
 12. Obtener los libros de cierta categoria: `http://127.12.1.2:5010/libro/categoria?cate=Novela`
+13. Listar los prestamos realizados por un usuario: `http://127.12.1.2:5010/prestamo/usuario/?user=Juan`
