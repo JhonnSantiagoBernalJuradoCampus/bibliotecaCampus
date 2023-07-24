@@ -6,6 +6,7 @@ import appEditorial from "./routers/editorial.js";
 import appEstado from "./routers/estado.js";
 import appLibro from "./routers/libro.js";
 import appPrestamo from "./routers/prestamo.js";
+import appReserva from "./routers/reserva.js";
 dotenv.config();
 let appExpress = express();
 
@@ -16,6 +17,7 @@ appExpress.use('/editorial', appEditorial);
 appExpress.use('/estado', appEstado);
 appExpress.use('/libro', appLibro);
 appExpress.use('/prestamo', appPrestamo);
+appExpress.use('/reserva', appReserva);
 
 let myConfig = JSON.parse(process.env.MY_CONFIG);
 appExpress.listen(myConfig, ()=>{
