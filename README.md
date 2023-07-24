@@ -10,3 +10,4 @@ MY_CONFIG = {"hostname": "127.12.1.2", "port": 5010}
 2. Listar todas las categorias disponibles: `http://127.12.1.2:5010/categoria`
 3. Mostrar todas las editoriales y sus direcciones: `http://127.12.1.2:5010/editorial`
 4. Obtener los estados de los libros y sus descripciones: `http://127.12.1.2:5010/estado`
+5. Mostrar todos los libros con su titulo, autor y editorial: `http://127.12.1.2:5010/libro`
