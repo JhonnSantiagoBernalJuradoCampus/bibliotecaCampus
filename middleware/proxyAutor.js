@@ -8,7 +8,7 @@ const proxyAutor = express();
 proxyAutor.use(async(req,res,next)=>{
     try {
         let data = plainToClass(Autor, req.query, { excludeExtraneousValues: true });
-        req.params = data;
+        req.query = data;
         await validate(data);
         next();
     } catch (err) {

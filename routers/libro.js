@@ -49,7 +49,7 @@ appLibro.get('/autor', proxyAutor, (req,res)=>{
      * @var {req.query.nombre}
      * req.query.nombre = Gabriel
      */
-    con.query(`SELECT l.titulo as titulo, a.nombre as nombre FROM libro as l INNER JOIN autor as a ON l.id_autor = a.id_autor WHERE a.nombre = "${req.query.nombre}"`,
+    con.query(`SELECT l.titulo as titulo, a.nombre as nombre FROM libro as l INNER JOIN autor as a ON l.id_autor = a.id_autor WHERE a.nombre = "${req.query.autor}"`,
     (err,data,fill) =>{
         if(err){
             res.status(404).send("Error al obtener datos");
