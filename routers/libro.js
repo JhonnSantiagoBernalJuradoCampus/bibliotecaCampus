@@ -79,4 +79,17 @@ appLibro.get('/categoria', proxyCategoria, (req,res)=>{
         }
     })
 })
+appLibro.get('/paginas', (req,res)=>{
+    con.query(`SELECT l.titulo as titulo, a.nombre as nombre FROM libro as l INNER JOIN autor as a ON l.id_autor = a.id_autor WHERE l.num_paginas >= 500`,
+    (err,data,fill) =>{
+        if(err){
+            res.status(404).send("Error al obtener datos");
+        }
+        else{
+            (Object.entries(data).length === 0)
+            ? res.status(400).send("Dato no encontrado")
+            : res.send(data);
+        }
+    })
+})
 export default appLibro;
