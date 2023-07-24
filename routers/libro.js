@@ -43,5 +43,8 @@ appLibro.get('/prestado', (req,res) =>{
         }
     )
 })
+appLibro.get('/:autor', (req,res)=>{
+    res.send(`Valido al autor ${req.params.autor}`)
+})
 
 export default appLibro;
