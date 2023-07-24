@@ -31,5 +31,19 @@ appLibro.get('/disponible', (req,res) =>{
         }
     )
 })
+appLibro.get('/prestado', (req,res) =>{
+    con.query('SELECT libro.titulo as titulo, prestamo.fecha_devolucion as fecha_devolucion, estado_libro.nombre as estado FROM libro INNER JOIN prestamo ON libro.id_libro = prestamo.id_libro INNER JOIN estado_libro ON libro.id_estado = estado_libro.id_estado WHERE prestamo.id_libro = libro.id_libro AND estado_libro.id_estado = 3',
+        (err, data, fill)=>{
+            if(err){
+                res.status(404).send("Error al obtener datos");
+            }
+            else{
+                (Object.entries(data).length === 0)
+                ? res.status(400).send("No hay libros prestados")
+                : res.send(data);
+            }
+        }
+    )
+})
 
 export default appLibro;
