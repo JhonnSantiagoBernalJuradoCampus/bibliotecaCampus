@@ -8,3 +8,4 @@ MY_CONFIG = {"hostname": "127.12.1.2", "port": 5010}
 # Endpoints
 1. Obtener los autores y su nacionalidad: `http://127.12.1.2:5010/autor`
 2. Listar todas las categorias disponibles: `http://127.12.1.2:5010/categoria`
+3. Mostrar todas las editoriales y sus direcciones: `http://127.12.1.2:5010/editorial`
