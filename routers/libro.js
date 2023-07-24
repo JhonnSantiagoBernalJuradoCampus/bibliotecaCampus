@@ -19,5 +19,17 @@ appLibro.get('/',(req, res) => {
         }
     )
 })
+appLibro.get('/disponible', (req,res) =>{
+    con.query('SELECT libro.titulo as titulo, autor.nombre as autor, estado_libro.nombre as estado FROM libro INNER JOIN autor ON libro.id_autor = autor.id_autor INNER JOIN estado_libro ON libro.id_estado = estado_libro.id_estado WHERE autor.id_autor = libro.id_autor AND estado_libro.id_estado = 1',
+        (err, data, fill)=>{
+            if(err){
+                res.status(404).send("Error al obtener datos");
+            }
+            else{
+                res.send(data);
+            }
+        }
+    )
+})
 
 export default appLibro;
