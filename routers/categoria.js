@@ -14,9 +14,7 @@ appCategoria.get('/',(req, res) => {
                 res.status(404).send("Error al obtener datos");
             }
             else{
-                (Object.entries(data).length === 0)
-                ? res.status(400).send("Dato no encontrado")
-                : res.send(data);
+                res.send(data);
             }
         }
     )
