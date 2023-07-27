@@ -3,6 +3,7 @@
 1. Crear el archivo .env e ingresar los datos del servidor:
 ```js
 MY_CONFIG = {"hostname": "127.12.1.2", "port": 5010}
+DB_CONFIG = {"host": "localhost", "port", 3306, "user": "root", "password": "", "database": "db_campus_bliblioteca"}
 ```
 2. Abrir la terminal del editor de codigo y ejecutar el comando `npm i`
 # Endpoints
